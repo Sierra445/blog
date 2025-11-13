@@ -1,23 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add Post</title>
+    <link rel="stylesheet" href="{% static 'blog_app/css/style.css' %}">  <!-- optional -->
 </head>
 <body>
-    <h1>Add a New Post</h1>
+    <div class="container">
+        <h1>Add a New Post</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        <label>Title:</label><br>
-        <input type="text" name="title" required><br><br>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Title:</label><br>
+            <input type="text" name="title" required><br><br>
 
-        <label>Content:</label><br>
-        <textarea name="content" rows="6" cols="40" required></textarea><br><br>
+            <label>Author:</label><br>
+            <input type="text" name="author" required><br><br>
 
-        <button type="submit">Save</button>
-    </form>
+            <label>Content:</label><br>
+            <textarea name="content" rows="6" cols="40" required></textarea><br><br>
 
-    <p><a href="{% url 'index' %}">Back to all posts</a></p>
+            <button type="submit">Save</button>
+        </form>
+
+        <p><a href="{% url 'blog-app-index' %}">Back to all posts</a></p>
+    </div>
 </body>
 </html>
